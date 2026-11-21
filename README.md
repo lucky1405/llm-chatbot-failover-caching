@@ -8,9 +8,10 @@ A resilient, production-ready AI chatbot full-stack application built with **Rea
 
 | Service | Deployment Platform | Live URL | Status |
 | :--- | :--- | :--- | :--- |
-| **Frontend** | Vercel / Netlify / Render | `https://your-frontend-deployment.vercel.app` *(update with your live URL)* | Public & Reachable |
-| **Backend API** | Render / Railway / Fly.io | `https://your-backend-deployment.onrender.com` *(update with your live URL)* | Public & Reachable |
-| **Health Check** | Backend Endpoint | `https://your-backend-deployment.onrender.com/health` | HTTP 200 OK |
+| **Frontend UI** | Vercel | [https://llm-chatbot-failover-caching.vercel.app](https://llm-chatbot-failover-caching.vercel.app) | Public & Reachable |
+| **Backend API** | Render | [https://lyftr-chatbot-backend-t1ao.onrender.com](https://lyftr-chatbot-backend-t1ao.onrender.com) | Public & Reachable |
+| **Health Check** | Backend Endpoint | [https://lyftr-chatbot-backend-t1ao.onrender.com/health](https://lyftr-chatbot-backend-t1ao.onrender.com/health) | HTTP 200 OK |
+| **API Documentation** | Swagger / OpenAPI | [https://lyftr-chatbot-backend-t1ao.onrender.com/docs](https://lyftr-chatbot-backend-t1ao.onrender.com/docs) | Interactive Docs |
 
 > Both frontend and backend tiers are connected and testable through the live URLs without requiring any login.
 

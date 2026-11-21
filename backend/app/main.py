@@ -97,6 +97,20 @@ async def generic_exception_handler(request: Request, exc: Exception):
 
 
 @app.get(
+    "/",
+    summary="Root index",
+    include_in_schema=False
+)
+async def root():
+    return {
+        "status": "ok",
+        "service": "Lyftr AI Chatbot Gateway",
+        "health": "/health",
+        "docs": "/docs"
+    }
+
+
+@app.get(
     "/health",
     response_model=HealthResponse,
     summary="Health check",
