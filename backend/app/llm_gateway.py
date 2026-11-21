@@ -187,13 +187,23 @@ class LLMGateway:
                         mock_response=mock_content
                     )
                 else:
+                    call_model = model
+                    api_base = settings.LLM_API_BASE
+
+                    # Auto-detect Groq keys (starts with gsk_)
+                    if api_key.startswith("gsk_"):
+                        if not api_base:
+                            api_base = "https://api.groq.com/openai/v1"
+                        if model.startswith("openai/") and not model.startswith("openai/openai/"):
+                            call_model = f"openai/{model}"
+
                     completion_kwargs = {
-                        "model": model,
+                        "model": call_model,
                         "messages": messages,
                         "api_key": api_key,
                     }
-                    if settings.LLM_API_BASE:
-                        completion_kwargs["api_base"] = settings.LLM_API_BASE
+                    if api_base:
+                        completion_kwargs["api_base"] = api_base
                     response = await litellm.acompletion(**completion_kwargs)
 
                 # Extract reply text

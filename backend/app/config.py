@@ -2,16 +2,16 @@ import os
 from typing import List
 from dotenv import load_dotenv
 
-# Load .env from backend directory or project root
+# Load .env: prioritize backend/.env, then fallback to root .env
 current_dir = os.path.dirname(os.path.abspath(__file__))
-root_env = os.path.abspath(os.path.join(current_dir, "..", "..", ".env"))
 backend_env = os.path.abspath(os.path.join(current_dir, "..", ".env"))
+root_env = os.path.abspath(os.path.join(current_dir, "..", "..", ".env"))
 
-if os.path.exists(root_env):
-    load_dotenv(dotenv_path=root_env)
 if os.path.exists(backend_env):
-    load_dotenv(dotenv_path=backend_env)
-load_dotenv()
+    load_dotenv(dotenv_path=backend_env, override=True)
+elif os.path.exists(root_env):
+    load_dotenv(dotenv_path=root_env, override=True)
+load_dotenv(override=True)
 
 
 class Settings:
