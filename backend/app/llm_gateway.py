@@ -187,11 +187,14 @@ class LLMGateway:
                         mock_response=mock_content
                     )
                 else:
-                    response = await litellm.acompletion(
-                        model=model,
-                        messages=messages,
-                        api_key=api_key
-                    )
+                    completion_kwargs = {
+                        "model": model,
+                        "messages": messages,
+                        "api_key": api_key,
+                    }
+                    if settings.LLM_API_BASE:
+                        completion_kwargs["api_base"] = settings.LLM_API_BASE
+                    response = await litellm.acompletion(**completion_kwargs)
 
                 # Extract reply text
                 choice = response.choices[0]

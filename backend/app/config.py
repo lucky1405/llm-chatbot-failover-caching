@@ -2,6 +2,15 @@ import os
 from typing import List
 from dotenv import load_dotenv
 
+# Load .env from backend directory or project root
+current_dir = os.path.dirname(os.path.abspath(__file__))
+root_env = os.path.abspath(os.path.join(current_dir, "..", "..", ".env"))
+backend_env = os.path.abspath(os.path.join(current_dir, "..", ".env"))
+
+if os.path.exists(root_env):
+    load_dotenv(dotenv_path=root_env)
+if os.path.exists(backend_env):
+    load_dotenv(dotenv_path=backend_env)
 load_dotenv()
 
 
@@ -11,6 +20,7 @@ class Settings:
     ALLOWED_ORIGINS_RAW: str = os.getenv("ALLOWED_ORIGINS", "*")
     ENABLE_FAILURE_SIMULATION: bool = os.getenv("ENABLE_FAILURE_SIMULATION", "true").lower() in ("true", "1", "yes")
     LLM_MODEL: str = os.getenv("LLM_MODEL", "gemini/gemini-2.0-flash")
+    LLM_API_BASE: str = os.getenv("LLM_API_BASE", "")
     DEFAULT_SYSTEM_PROMPT: str = os.getenv("DEFAULT_SYSTEM_PROMPT", "You are a helpful, friendly, and concise AI assistant.")
     PORT: int = int(os.getenv("PORT", "8000"))
     HOST: str = os.getenv("HOST", "0.0.0.0")
