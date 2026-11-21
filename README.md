@@ -12,6 +12,7 @@ A resilient, production-ready AI chatbot full-stack application built with **Rea
 | **Backend API** | Render | [https://lyftr-chatbot-backend-t1ao.onrender.com](https://lyftr-chatbot-backend-t1ao.onrender.com) | Public & Reachable |
 | **Health Check** | Backend Endpoint | [https://lyftr-chatbot-backend-t1ao.onrender.com/health](https://lyftr-chatbot-backend-t1ao.onrender.com/health) | HTTP 200 OK |
 | **API Documentation** | Swagger / OpenAPI | [https://lyftr-chatbot-backend-t1ao.onrender.com/docs](https://lyftr-chatbot-backend-t1ao.onrender.com/docs) | Interactive Docs |
+| **Demo Video** | Google Drive | [https://drive.google.com/file/d/1Wry3n0n171-HPGlDANd43TiT3c_3RXVk/view?usp=sharing](https://drive.google.com/file/d/1Wry3n0n171-HPGlDANd43TiT3c_3RXVk/view?usp=sharing) | Publicly Viewable (19.3 MB) |
 
 > Both frontend and backend tiers are connected and testable through the live URLs without requiring any login.
 
